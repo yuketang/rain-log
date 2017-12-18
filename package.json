@@ -1,0 +1,27 @@
+{
+  "name": "rain-log",
+  "version": "1.0.0",
+  "description": "rain classroom nodejs log",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuketang/rain-log.git"
+  },
+  "keywords": [
+    "log"
+  ],
+  "author": "yankai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuketang/rain-log/issues"
+  },
+  "homepage": "https://github.com/yuketang/rain-log#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "express": "^4.16.2",
+    "uuid": "^3.1.0"
+  }
+}
