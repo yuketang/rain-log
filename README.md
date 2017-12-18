@@ -45,3 +45,17 @@ app.use(logger.access_log());
 | name      | 必填，每个logger的名字，最好是项目名 |
 | level      | 日志级别，取值：debug info warn error fatal，生产环境默认info，其他环境默认debug      |
 | logType | 日志输出类型，取值：file std，生产环境默认file，其他环境默认std。file代表文件，std代表标准输出      |
+
+错误码规范
+----
+约定access日志中的custom_status_code为实时监控所用字段，custom_status_code对应输出json数据的status属性，0代表正确，非0代表错误
+
+约定错误码为5位数字，万位数字表示错误大类，由低到高表示错误越来越严重
+```javascript
+10000: 权限类错误，如session过期等
+30000: 调用方传递的参数错误，如必要参数缺失、参数超出限定的范围等
+40000: 调用方使用方法错误，有可能是被攻击，如POST接口用GET、错误的请求url、参数无法解码等。对应WARN等级
+50000: 第三方依赖错误，如第三方接口http调用超时、mysql查询错误、redis错误等。对应ERROR等级
+60000: 系统发生了错误，如uncaughtException等。其中66666表示返回数据里没取到status值。对应FATAL等级
+```
+一般来说，50000以上才需要告警，属于线上问题，需要快速解决。而60000以上最好立即hotfix。
