@@ -56,6 +56,6 @@ app.use(logger.access_log());
 30000: 调用方传递的参数错误，如必要参数缺失、参数超出限定的范围等
 40000: 调用方使用方法错误，有可能是被攻击，如POST接口用GET、错误的请求url、参数无法解码等。对应WARN等级
 50000: 第三方依赖错误，如第三方接口http调用超时、mysql查询错误、redis错误等。对应ERROR等级
-60000: 系统发生了错误，如uncaughtException等。其中66666表示返回数据里没取到status值。对应FATAL等级
+60000: 系统发生了错误，如uncaughtException等。对应FATAL等级
 ```
 一般来说，50000以上才需要告警，属于线上问题，需要快速解决。而60000以上最好立即hotfix。
