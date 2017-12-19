@@ -11,7 +11,7 @@ logger.debug('This is a debug message');
 logger.info('Information!');
 logger.info({test: 111, json: 'ok'});
 
-logger.error(new Error('Timeout!'));
+logger.error(new Error('Timeout!'), 'hehe');
 
 //---------------------------------------------------------
 
