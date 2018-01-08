@@ -35,23 +35,26 @@ class RainLog {
 		this.logger = new Logger(options.name, type);
 	}
 
-	debug(data) {
-		if (16 <= this.level) {
-			this.logger.getDebugLogger().debug(data);
-		}
-	}
+	debug() {
+        if (16 <= this.level) {
+            let logger = this.logger.getDebugLogger();
+            logger.debug.apply(logger, arguments);
+        }
+    }
 
-	info(data) {
-		if (8 <= this.level) {
-			this.logger.getInfoLogger().info(data);
-		}
-	}
+    info() {
+        if (8 <= this.level) {
+            let logger = this.logger.getInfoLogger();
+            logger.info.apply(logger, arguments);
+        }
+    }
 
-	error(err) {
-		if (2 <= this.level) {
-			this.logger.getErrorLogger().error(err);
-		}
-	}
+    error() {
+        if (2 <= this.level) {
+            let logger = this.logger.getErrorLogger();
+            logger.error.apply(logger, arguments);
+        }
+    }
 
 	access_log() {
 		return (req, res, next) => {

@@ -32,6 +32,9 @@ const logger = new rainLogs({
     name: 'test'
 });
 app.use(logger.access_log());
+
+//access.log增加新的项目自定义字段，可以在不同地方分别addFields
+req.log.addFields({appid: appid});
 ```
 输出示例
 ```shell
