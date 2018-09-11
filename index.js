@@ -56,9 +56,9 @@ class RainLog {
         }
     }
 
-	access_log() {
+	access_log(options = {}) {
 		return (req, res, next) => {
-			this.logger.middleware(req, res, next);
+			this.logger.middleware(req, res, next, options);
 		};
 	}
 }
