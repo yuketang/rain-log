@@ -61,6 +61,10 @@ class RainLog {
 			this.logger.middleware(req, res, next, options);
 		};
 	}
+
+	 egg_access_log(options = {}) {
+		return this.logger.middlewareEgg(options)
+	}
 }
 
 module.exports = RainLog;
