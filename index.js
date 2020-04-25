@@ -9,8 +9,8 @@ const Levels = {
 	'fatal': 1
 };
 const logType = {
-	'file': 0,	//default
-	'std': 1
+	'file': 1,	//default
+	'std': 2
 };
 //默认日志级别，生产环境为info，其他环境debug
 if (process.env.NODE_ENV === 'production') {
